@@ -1,10 +1,8 @@
-# german_transliterate
+# dutch_transliterate
 
-**german_transliterate** is a Python module to clean and transliterate (i.e. normalize) German text including abbreviations, numbers, timestamps etc. It can be used to clean messy text (e.g. map peculiar Unicode encodings to ASCII) or replace common abbreviations in text in combination with various text mining tasks.
+**dutch_transliterate** is a Python module to clean and transliterate (i.e. normalize) Dutch text including abbreviations, numbers, timestamps etc. It can be used to clean messy text (e.g. map peculiar Unicode encodings to ASCII) or replace common abbreviations in text in combination with various text mining tasks.
 
-However, it is particularly useful for Text-To-Speech (TTS) preprocessing (both in training and inference) and has features to support phonemic encoding of the results (e.g. with [espeak-ng](https://en.wikipedia.org/wiki/ESpeak#eSpeak_NG)) afterwards as next step in the processing pipeline.
-
-Is has been successfully applied to preprocessing with [Mozilla TTS](https://github.com/mozilla/TTS) in combination with `espeak-ng` phonemes as input data to both training and inference pipeline.
+This project is a fork from https://github.com/repodiac/german_transliterate
 
 ## License and Attribution
 
@@ -12,19 +10,12 @@ This work is licensed under the Creative Commons Attribution 4.0 International L
 
 To provide **attribution or cite this work** please use the following text snippet:
 ```
-german_transliterate, Copyright 2020 by repodiac, see https://github.com/repodiac for updates and further information
+dutch_transliterate, Copyright 2020 by repodiac, see https://github.com/repodiac for updates and further information
 ```
 
 ## Version History
 
-* `0.1.3` - some bugfixes in various ops: `weekday`, `month`, `amount_money` and acronyms, also some minor stuff fixed here and there (**update highly recommended**)
-* `0.1.2` - removed the following ops from the list of default ops, since (as mentioned in the documentation below) they are highly error-prone (many false-positives). You can still use them via
-explicitly adding them to the `transliterate_ops=[...]` list. The ops removed are:
-	* `month`
-	* `weekday`
-	* `math_symbol`
-* `0.1.1` - added command-line interface for default usage (no phoneme encoding and experimental stuff left out)
-* `release 0.1` - initial release of the software, still a lot of `ToDo`s and some more experimental features (see documentation); also exception handling could be improved
+* `release 0.1` - initial fork from Repodiac's repo
 
 # Installation/Setup
 
@@ -32,11 +23,11 @@ It has currently only one external dependency, [num2words](https://pypi.org/proj
 
 Installation is easy using `pip` and built-in `git` package installation based on `setup.py`:
 
-* `pip install git+https://github.com/repodiac/german_transliterate`
+* `pip install git+https://github.com/syilmaz/dutch_transliterate`
 
 Setup:
 
-- It should install and behave (`import german_transliterate.core`) to your current Python environment as any other `pip` package (in case, create a virtual environment with `virtualenv` or `conda` before).
+- It should install and behave (`import dutch_transliterate.core`) to your current Python environment as any other `pip` package (in case, create a virtual environment with `virtualenv` or `conda` before).
 
 # Documentation
 
@@ -45,7 +36,7 @@ Setup:
 In Python code or as library:
 
 ```
-from german_transliterate.core import GermanTransliterate
+from dutch_transliterate.core import GermanTransliterate
 
 text = 'Um 13:15h kaufte Hr. Meier (Mitarbeiter der Firma ABC) 1.000 Luftballons für 250€.'
 print('ORIGINAL:', text, '\n')
@@ -95,10 +86,5 @@ The parameters used for the config parameter `transliterate_ops` are as follows:
 * `math_symbol` (*experimental*), transliterates a small selection of math symbols, e.g. `plus`, `minus` etc. (also here applies: can have a lot of false-positives, so use with care)
 * `spoken_symbol` allows to transliterate brackets or citation marks into spoken language, e.g. '( text )' into `-- in klammern -- text --` (if `sep_abbreviation` is set to ' -- '), mainly useful for TTS tasks
 
-## Performance
 
-The current state is mainly based on using manual mappings and regular expressions for substitution and expansion of strings (words or terms). Therefore, current performance should be good enough to be used with online inference or "realtime" usage in a text processing pipeline. As further modules or ops are added over time, there might be also rather slow methods doing heavy computations and thus suited mainly for training or offline processing.
-
-# Issues and Comments
-
-Please open issues on github for bugs or feature requests. You can also reach out to me via email.
+> german_transliterate, Copyright 2020 by repodiac, see https://github.com/repodiac for updates and further information

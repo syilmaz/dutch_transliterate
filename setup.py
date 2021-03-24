@@ -1,14 +1,14 @@
 from setuptools import setup
 
 setup(
-   name='german_transliterate',
-   version='0.1.3',
-   author='repodiac',
-   author_email='spamornot@gmx.net',
+   name='dutch_transliterate',
+   version='0.1.0',
+   author='syilmaz',
+   author_email='syilmaz@handpickedagencies.com',
    packages=['german_transliterate'],
-   url='http://github.com/repodiac/german_transliterate',
+   url='http://github.com/syilmaz/dutch_transliterate',
    license='CC-BY-4.0 License',
-   description='german_transliterate can clean and transliterate (i.e. normalize) German text including abbreviations, numbers, timestamps etc.',
+   description='dutch_transliterate can clean and transliterate (i.e. normalize) Dutch text including abbreviations, numbers, timestamps etc.',
    long_description=open('README.md', encoding="UTF-8").read(),
    install_requires=[
        "num2words",

@@ -3,7 +3,7 @@
 # To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 # or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 #
-# Copyright 2020 by repodiac (see https://github.com/repodiac, also for information how to provide attribution to this work)
+# Forked from german_transliterate, Copyright 2020 by repodiac, see https://github.com/repodiac for updates and further information
 #
 
 import re
@@ -68,36 +68,34 @@ class AcronymPhonemeConfig(GTConfig):
                'WAZ'}
 
     # when transliterating abbreviations, these mappings for replacing letters are in use
+    # https://www.colanguage.com/nl/het-nederlands-alfabet-letters-en-uitspraak
     LETTER = {
-        'A': 'ah',
-        'B': 'beh',
-        'C': 'zee',
-        'D': 'deh',
-        'E': 'eh',
-        'F': 'eff',
-        'G': 'geh',
-        'H': 'hah',
-        'I': 'ih',
-        'J': 'jott',
-        'K': 'kah',
-        'L': 'ell',
-        'M': 'emm',
-        'N': 'enn',
-        'O': 'oh',
-        'P': 'peh',
-        'Q': 'kuh',
-        'R': 'err',
-        'S': 'ess',
-        'T': 'teh',
-        'U': 'uh',
-        'V': 'fau',
-        'W': 'weh',
+        'A': 'aa',
+        'B': 'bee',
+        'C': 'cee',
+        'D': 'dee',
+        'E': 'ee',
+        'F': 'ef',
+        'G': 'gee',
+        'H': 'haa',
+        'I': 'ie',
+        'J': 'jee',
+        'K': 'kaa',
+        'L': 'el',
+        'M': 'em',
+        'N': 'en',
+        'O': 'oo',
+        'P': 'pee',
+        'Q': 'quu',
+        'R': 'er',
+        'S': 'es',
+        'T': 'tee',
+        'U': 'uu',
+        'V': 'vee',
+        'W': 'wee',
         'X': 'iks',
-        'Y': 'üpsilon',
-        'Z': 'zett',
-        'Ä': 'äh',
-        'Ö': 'öh',
-        'Ü': 'üh',
+        'Y': 'ei',
+        'Z': 'zet',
     }
 
 
@@ -109,29 +107,29 @@ class UnitConfig(GTConfig):
     # units with specifics: singular equals plural
     # note: '_' is used to mask separator used with abbreviations (see sep_abbreviation=...)
     PLURAL_NO_SUFFIX = {
-        'mg': 'milligramm',
-        'kg': 'kilogramm',
-        'g': 'gramm',
+        'mg': 'milligram',
+        'kg': 'kilogram',
+        'g': 'gram',
         'nm': 'nanometer',
-        'µm': 'mikrometer',
+        'µm': 'micrometer',
         'mm': 'millimeter',
-        'mm^2': 'quadratmillimeter',
-        'mm²': 'quadratmillimeter',
-        'cm': 'zentimeter',
-        'cm^2': 'quadratzentimeter',
-        'cm²': 'quadratzentimeter',
-        'cm^3': 'kubikzentimeter',
-        'cm³': 'kubikzentimeter',
-        'dm': 'dezimeter',
+        'mm^2': 'vierkante millimeter',
+        'mm²': 'vierkante millimeter',
+        'cm': 'centimeter',
+        'cm^2': 'vierkante centimeter',
+        'cm²': 'vierkante centimeter',
+        'cm^3': 'kubike centimeter',
+        'cm³': 'kubike centimeter',
+        'dm': 'decimeter',
         'm': 'meter',
-        'm^2': 'quadratmeter',
-        'm²': 'quadratmeter',
-        'm^3': 'kubikmeter',
-        'm³': 'kubikmeter',
+        'm^2': 'vierkante meter',
+        'm²': 'vierkante meter',
+        'm^3': 'kubike meter',
+        'm³': 'kubike meter',
         'km': 'kilometer',
-        'km^2': 'quadratkilometer',
-        'km²': 'quadratkilometer',
-        'ha': 'hektar',
+        'km^2': 'vierkante kilometer',
+        'km²': 'vierkante kilometer',
+        'ha': 'hectare',
         'w': 'watt',
         'j': 'joule',
         'kj': 'kilojoule',
@@ -151,9 +149,9 @@ class UnitConfig(GTConfig):
         'g_w': 'gigawatt',
         'mw': 'megawatt',
         'gw': 'gigawatt',
-        '°': 'grad',
-        '°c': 'grad celsius',
-        '°f': 'grad fahrenheit',
+        '°': 'graden',
+        '°c': 'graden celsius',
+        '°f': 'graden fahrenheit',
     }
 
     # units with specifics: plural is singular + suffix 'n'
@@ -161,30 +159,30 @@ class UnitConfig(GTConfig):
         't': 'tonnen',
         'kt': 'kilotonnen',
         'mt': 'megatonnen',
-        'kwh': 'kilowattstunden',
-        'mwh': 'megawattstunden',
-        'gwh': 'gigawattstunden',
-        'kal': 'kalorien',
-        'cal': 'kalorien',
-        'mia': 'milliarden',
-        'mrd': 'milliarden',
-        'md': 'milliarden',
-        'brd': 'billiarden',
-        'ns': 'nanosekunden',
-        'µs': 'mikrosekunden',
-        'ms': 'millisekunden',
-        's': 'sekunden',
-        'sek': 'sekunden',
+        'kwh': 'kilowattuur',
+        'mwh': 'megawattuur',
+        'gwh': 'gigawattuur',
+        'kal': 'calorieen',
+        'cal': 'calorieen',
+        'mia': 'miljarden',
+        'mrd': 'miljarden',
+        'md': 'miljarden',
+        'brd': 'biljoenen',
+        'ns': 'nanoseconden',
+        'µs': 'microseconden',
+        'ms': 'milliseconden',
+        's': 'seconden',
+        'sek': 'seconden',
         'm': 'minuten',
         'min': 'minuten',
-        'h': 'stunden',
+        'h': 'uren',
     }
 
     PLURAL_SUFFIX_EN = {
-        'm': 'millionen',
-        'mio': 'millionen',
-        'mill': 'millionen',
-        'bill': 'billionen',
+        'm': 'miljoenen',
+        'mio': 'miljoenen',
+        'mill': 'miljoenen',
+        'bill': 'biljoenen',
     }
 
 
@@ -194,125 +192,95 @@ class AbbreviationConfig(GTConfig):
     """
 
     MISC = {
-        'fr': 'frau',
-        'hr': 'herr',
+        'mevr': 'mevrouw',
+        'mw': 'mevrouw',
+        'dhr': 'de heer',
         'dr': 'doktor',
         'prof': 'professor',
         'jprof': 'juniorprofessor',
         'jun.prof': 'juniorprofessor',
-        'mag': 'magister',
         'bsc': 'bachelor of science',
         'msc': 'master of science',
-        'st': 'sankt',
-        'skt': 'sankt',
-        'z.b': 'zum beispiel',
-        'bspw': 'beispielsweise',
-        'd.h': 'das heißt',
-        'abzgl': 'abzüglich',
-        'zzgl': 'zuzüglich',
-        'ust': 'umsatzsteuer',
-        'mwst': 'mehrwertsteuer',
         'ca': 'circa',
-        'inkl': 'inklusive',
-        'incl': 'inklusive',
-        'exkl': 'exklusive',
-        'excl': 'exklusive',
-        'i.o': 'in ordnung',
-        'z.t': 'zum teil',
-        'pr': 'pro',
-        'ihv': 'in höhe von',
-        'i.h.v': 'in höhe von',
-        'vglw': 'vergleichsweise'
+        'incl': 'inclusief',
+        'excl': 'exclusief'
     }
 
     TIME = {
-        'ns': 'nanosekunden',
-        'µs': 'mikrosekunden',
-        'ms': 'millisekunden',
-        's': 'sekunden',
-        'sek': 'sekunden',
+        'ns': 'nanoseconden',
+        'µs': 'microseconden',
+        'ms': 'milliseconden',
+        's': 'seconden',
+        'sek': 'seconden',
         'm': 'minuten',
         'min': 'minuten',
-        'h': 'stunden',
+        'h': 'uren',
     }
 
     WEEKDAY = {
-        'mo': 'montag',
-        'di': 'dienstag',
-        'mi': 'mittwoch',
-        'do': 'donnerstag',
-        'fr': 'freitag',
-        'sa': 'samstag',
-        'so.': 'sonntag',
+        'ma': 'maandag',
+        'di': 'dinsdag',
+        'woe': 'woensdag',
+        'do': 'donderdag',
+        'vr': 'vrijdag',
+        'za': 'zaterdag',
+        'zo': 'zondag',
     }
 
     MONTH = {
-        'januar': 'januar',
-        'jänner': 'jänner',
-        'februar': 'februar',
-        'märz': 'märz',
+        'januari': 'januari',
+        'februari': 'februari',
+        'maart': 'maart',
         'april': 'april',
-        'mai': 'mai',
+        'mei': 'mei',
         'juni': 'juni',
         'juli': 'juli',
-        'august': 'august',
+        'augustus': 'augustus',
         'september': 'september',
         'oktober': 'oktober',
         'november': 'november',
-        'dezember': 'dezember',
-        'jan.': 'januar',
-        'jän': 'jänner',
-        'feb': 'februar',
-        'mrz': 'märz',
-        'mär': 'märz',
+        'december': 'december',
+        'jan.': 'januari',
+        'feb': 'februari',
+        'mrt': 'maart',
         'apr': 'april',
         'jun': 'juni',
         'jul': 'juli',
-        'aug': 'august',
-        'sep': 'september',
+        'aug': 'augustus',
+        'sept': 'september',
         'okt': 'oktober',
         'nov': 'november',
-        'dez': 'dezember',
+        'dec': 'december',
     }
 
     NUMBER_MONTH = {
-        '1': 'januar',
-        '01': 'januar',
-        '2': 'februar',
-        '02': 'februar',
-        '3': 'märz',
-        '03': 'märz',
+        '1': 'januari',
+        '01': 'januari',
+        '2': 'februari',
+        '02': 'februari',
+        '3': 'maart',
+        '03': 'maart',
         '4': 'april',
         '04': 'april',
-        '5': 'mai',
-        '05': 'mai',
+        '5': 'mei',
+        '05': 'mei',
         '6': 'juni',
         '06': 'juni',
         '7': 'juli',
         '07': 'juli',
-        '8': 'august',
-        '08': 'august',
+        '8': 'augustus',
+        '08': 'augustus',
         '9': 'september',
         '09': 'september',
         '10': 'oktober',
         '11': 'november',
-        '12': 'dezember',
+        '12': 'december',
     }
 
     # '_' is used to mask separator used with abbreviations (see sep_abbreviation=...)
     CURRENCY_SYMBOL = {
-        'g_b_p': 'britische pfund',
-        '£': 'pfund',
-        '$': 'dollar',
         'e_u_r': 'euro',
-        't_e_u_r_o': 'tausend euro',
-        't_e_u_r': 'tausend euro',
-        't€': 'tausend euro',
-        '€': 'euro',
-        't_d_m': 'tausend d-mark',
-        'd_m': 'd-mark',
-        'd_k_k': 'dänische kronen',
-        's_e_k': 'schwedische kronen',
+        '€': 'euro'
     }
 
     # order of items is important: longer strings before substrings, e.g. "<=" before "=" and "<"
@@ -320,31 +288,31 @@ class AbbreviationConfig(GTConfig):
         '+': ' plus ',
         '-': ' minus ',
         '−': ' minus ',
-        '/': ' geteilt durch ',
-        '\\': ' modulo ',
-        '**': ' hoch ',
-        '*': ' mal ',
-        '×': ' mal ',
-        'x': ' mal ',
+        '/': ' gedeeld door ',
+        '\\': ' min ',
+        '**': ' hoog ',
+        '*': ' keer ',
+        '×': ' keer ',
+        'x': ' keer ',
         '^': ' hoch ',
-        '>=': ' größer gleich ',
-        '≥': ' größer gleich ',
-        '<=': ' größer gleich ',
-        '≤': ' größer gleich ',
-        '==': ' äquvivalent zu ',
-        '=': ' gleich ',
-        '≍': ' äquvivalent zu ',
-        '>': ' größer ',
-        '<': ' kleiner ',
+        '>=': ' groter dan of gelijk aan ',
+        '≥': ' groter dan of gelijk aan ',
+        '<=': ' kleiner dan of gelijk aan ',
+        '≤': ' kleiner dan of gelijk aan ',
+        '==': ' gelijk aan ',
+        '=': ' gelijk aan ',
+        '≍': ' gelijk aan ',
+        '>': ' groter dan ',
+        '<': ' kleiner dan ',
     }
 
     # symbols (e.g. punctuations) which are transliterated to spoken words - probably only useful for use in TTS
     # pipelines
     SPOKEN_SYMBOL = {
-        ('(', ')'): '_in klammern_',
-        ('[', ']'): '_in klammern_',
-        ('"', '"'): '_in anführungszeichen_',
-        ('\'', '\''): '_zitat_',
+        ('(', ')'): '_tussen haakjes_',
+        ('[', ']'): '_tussen haakjes_',
+        ('"', '"'): '_in aanhalingstekens_',
+        ('\'', '\''): '_citaat_',
     }
 
 
@@ -430,9 +398,9 @@ class RegExConfig(GTConfig):
             raise e
 
 
-class GermanTransliterate:
+class DutchTransliterate:
     """
-    Transliterates *German* text into a normalized form as given by transliter_ops parameter config
+    Transliterates *Dutch* text into a normalized form as given by transliter_ops parameter config
 
     NOTE: This library can be used for cleaning messy text or transliterating/normalizing any text in text mining
     (e.g. with unicode to ascii mappings, various replacements etc.) but in particular its focus is on preprocessing
@@ -646,7 +614,7 @@ class GermanTransliterate:
                     space_split = frags[-1].strip().split(' ')
                     del (frags[-1])
                     frags.extend(space_split)
-                day = num2words(frags[0], lang='de', to='ordinal')
+                day = num2words(frags[0], lang='nl', to='ordinal')
                 if date_m.start() > 1 and text[date_m.start() - 2:date_m.start()] in ('m ', 'n '):
                     day += 'n'
                 if frags[1].strip() in self.abbreviation_config.MONTH:
@@ -655,7 +623,7 @@ class GermanTransliterate:
                     month = self.abbreviation_config.NUMBER_MONTH[frags[1].strip()]
                 year = ''
                 if len(frags) == 3 and frags[2]:
-                    year = num2words(frags[2], lang='de', to='year')
+                    year = num2words(frags[2], lang='nl', to='year')
                 text = self.regex.DETECT_DATE.sub(day + ' ' + month + (' ' + year if year else ''), text, count=1)
 
             return text
@@ -814,7 +782,7 @@ class GermanTransliterate:
             if self.regex.DETECT_ORDINAL.match(word) and word.endswith('.'):
                 if idx < (len(split_text) - 1) \
                         and split_text[idx + 1] not in self.abbreviation_config.CURRENCY_SYMBOL.values():
-                    word = num2words(word, lang='de', to='ordinal')
+                    word = num2words(word, lang='nl', to='ordinal')
                     if idx > 0 and idx < (len(split_text) - 1):
                         if cleaned[idx - 1].endswith('m'):
                             word += 'n'
@@ -1153,7 +1121,7 @@ class GermanTransliterate:
         """
         Uses library num2words for transliterating numbers (also floats or with decimal point numbers)
 
-        IMPORTANT NOTE: GERMAN version means 1000's marks is "."
+        IMPORTANT NOTE: DUTCH version means 1000's marks is "."
         and decimal point is "," (the opposite of in English)
 
         :param number: the number word to be transliterated
@@ -1169,14 +1137,14 @@ class GermanTransliterate:
                 # floating number only
                 if number.count(',') == 1:
                     number = number.replace(',', '.')
-                    word = num2words(float(number), lang='de', to='cardinal').lower()
+                    word = num2words(float(number), lang='nl', to='cardinal').lower()
                 # 1000's marks only
                 elif number.count('.') >= 1:
                     number = number.replace('.', '')
-                    word = num2words(int(number), lang='de', to='cardinal').lower()
+                    word = num2words(int(number), lang='nl', to='cardinal').lower()
                 # integer only
                 else:
-                    word = num2words(int(number), lang='de', to='cardinal').lower()
+                    word = num2words(int(number), lang='nl', to='cardinal').lower()
             except ValueError:
                 # ignore HERE: mixed numbers are handled further down in the pipeline!
                 word = number
@@ -1199,5 +1167,5 @@ if __name__ == "__main__":
     ops = {'accent_peculiarity', 'amount_money', 'date', 'timestamp', 'time_of_day', 'ordinal', 'special'}
 
     text = sys.argv[1]
-    normalized_text = GermanTransliterate(transliterate_ops=ops).transliterate(text)
+    normalized_text = DutchTransliterate(transliterate_ops=ops).transliterate(text)
     print(normalized_text)
