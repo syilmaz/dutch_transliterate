@@ -5,7 +5,7 @@ setup(
    version='0.1.0',
    author='syilmaz',
    author_email='syilmaz@handpickedagencies.com',
-   packages=['german_transliterate'],
+   packages=['dutch_transliterate'],
    url='http://github.com/syilmaz/dutch_transliterate',
    license='CC-BY-4.0 License',
    description='dutch_transliterate can clean and transliterate (i.e. normalize) Dutch text including abbreviations, numbers, timestamps etc.',
